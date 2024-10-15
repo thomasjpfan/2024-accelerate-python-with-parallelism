@@ -4,7 +4,7 @@ class: title-slide
 
 # Accelerate Python with Parallelism
 
-<!-- # TODO: ADD QR CODE -->
+![:scale 30%](images/qrcode_thomasjpfan.github.io.png)
 
 .larger[Thomas J. Fan]<br>
 <a href="https://www.github.com/thomasjpfan" target="_blank" class="title-link"><span class="icon icon-github right-margin"></span>@thomasjpfan</a>
@@ -1060,9 +1060,11 @@ class: top
 - Future 🔮 (Free-threading & Sub-interpreters)
 ]
 .g-6.g-center[
+.smaller[
 # Accelerate Python with Parallelism
+]
 
-<!-- # TODO: ADD QR CODE -->
+![:scale 50%](images/qrcode_thomasjpfan.github.io.png)
 
 Thomas J. Fan<br>
 <a href="https://www.github.com/thomasjpfan" target="_blank" class="title-link"><span class="icon icon-github right-margin"></span>@thomasjpfan</a>
