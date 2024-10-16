@@ -1007,9 +1007,8 @@ Learn more: https://marcogorelli.github.io/polars-plugins-tutorial/
 ---
 
 # Future 🔮
-
-- Sub-interpreters
-- Free-threading
+## Sub-interpreters
+## Free-threading
 
 ---
 
