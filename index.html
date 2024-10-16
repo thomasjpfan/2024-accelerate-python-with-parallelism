@@ -1102,7 +1102,7 @@ class: top
 fn abs_i64(inputs: &[Series]) -> PolarsResult<Series> {
     let s = &inputs[0];
     let ca = s.i64()?;
-    let out = ca.apply_values(|x| x.abs());
+*   let out = ca.apply_values(|x| x.abs());
     Ok(out.into_series())
 }
 ```
