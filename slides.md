@@ -1000,14 +1000,13 @@ class: top
 
 # PyTorch model loading 📼
 
-## Loading from CPU memory
+## Load into memory twice
 
 ```python
 model = MyPyTorchModule()
-model.to(device)
 
-model.load_state_dict("model.pth", map_location=device, weights_only=True)
-mode.to(device)
+state_dict = torch.load('model.pth', weights_only=True)
+model.load_state_dict(state_dict)
 ```
 
 --
@@ -1018,15 +1017,40 @@ mode.to(device)
 with torch.device("meta"):
 *   model = MyPytorchModule()
 
-model.load_state_dict(
-*   torch.load("model.pth", map_location=device, weights_only=True, mmap=True),
-    assign=True
-)
-
+state_dict = torch.load("model.pth", weights_only=True, mmap=True)
+model.load_state_dict(state_dict, assign=True)
 ```
 
 .footnote-back[
 [Source](https://pytorch.org/tutorials/recipes/recipes/module_load_state_dict_tips.html)
+]
+
+---
+
+# PyTorch model loading
+## Quick GPU Detour
+
+.g[
+.g-8[
+```python
+with torch.device("meta"):
+    model = MyPytorchModule()
+
+*device = torch.device("cuda")
+
+state_dict = torch.load(
+    "model.pth",
+*   map_location=device,
+    weights_only=True,
+    mmap=True
+)
+
+model.load_state_dict(state_dict, assign=True)
+```
+]
+.g-4[
+![](images/pytorch.png)
+]
 ]
 
 ---
