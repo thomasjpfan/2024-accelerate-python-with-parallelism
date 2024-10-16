@@ -1156,6 +1156,46 @@ class: top
 
 ---
 
+class: top
+
+# Free-threading Example
+
+```python
+def cpu_bound_task(n):
+    return sum(i * i for i in range(n))
+```
+
+--
+
+```python
+async def main():
+    N_THREADS, TASKS, SIZE = 4, 10, 5000000
+*   get_running_loop().set_default_executor(ThreadPoolExecutor(max_workers=N_THREADS))
+
+    async with TaskGroup() as tg:
+        for _ in range(TASKS):
+*           tg.create_task(to_thread(cpu_bound_task, SIZE))
+```
+
+--
+
+## Gil: True
+
+```bash
+Elapsed time: 1.625643014907837
+```
+--
+
+## Gil: False
+
+```bash
+Elapsed time: 0.455121040344238
+```
+
+--
+
+---
+
 
 .g.g-middle[
 .g-7[
