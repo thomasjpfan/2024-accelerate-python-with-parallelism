@@ -927,7 +927,9 @@ scalene np-copy.py
 # Memory 🧠
 ## Solutions
 
-- NumPy with `out`
+- Use API for better memory usage:
+    - NumPy with `out`
+    - PyTorch model loading
 - Compile Python code
     - `numba`
     - `Cython`
@@ -969,6 +971,43 @@ def compute(X):
 ```
 
 ![](images/memray-numba-time.jpg)
+
+---
+
+class: top
+
+<br>
+
+# PyTorch model loading 📼
+
+## Loading from CPU memory
+
+```python
+model = MyPyTorchModule()
+model.to(device)
+
+model.load_state_dict("model.pth", map_location=device, weights_only=True)
+mode.to(device)
+```
+
+--
+
+## Loading directly from disk
+
+```python
+with torch.device("meta"):
+*   model = MyPytorchModule()
+
+model.load_state_dict(
+*   torch.load("model.pth", map_location=device, weights_only=True, mmap=True),
+    assign=True
+)
+
+```
+
+.footnote-back[
+[Source](https://pytorch.org/tutorials/recipes/recipes/module_load_state_dict_tips.html)
+]
 
 ---
 
