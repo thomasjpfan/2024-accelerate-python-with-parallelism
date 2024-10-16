@@ -116,7 +116,7 @@ class: top
 - ❌ Parent process state (threadpools)
 ]
 .g-6.g-center[
-![:scale 60%](images/python-fork.png)
+![:scale 80%](images/python-fork.png)
 ]
 ]
 
@@ -336,7 +336,7 @@ class: top
 
 # 🚨 Global Interpreter Lock (GIL)
 
-![](images/threads-gil.svg)
+![:scale 100%](images/threads-gil.svg)
 
 ---
 
